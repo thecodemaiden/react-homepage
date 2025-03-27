@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "title": "Rotating Cube",
+        "thumbnail": "/images/thumbnail1.png",
+        "description": "A rotating 3D cube drawn with three.js."
+    },
+    {
+        "id": 2,
+        "title": "Interactive Timeline",
+        "thumbnail": "/images/thumbnail2.png",
+        "description": "An interactive timeline showcasing historical events."
+    }
+]
