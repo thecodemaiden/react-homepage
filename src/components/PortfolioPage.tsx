@@ -1,15 +1,17 @@
 // src/components/PortfolioPage.tsx
-import React, { useState, useEffect } from 'react';
-import { Project } from '../types';
-import Modal from 'react-modal'
+import React, { useState, useEffect, useContext } from 'react';
+import { ModalContextType, Project } from '../types';
 import rawProjects from '../static/projects.json'
+import Modal from './Modal';
+import { ModalProvider, ModalContext } from '../contexts/ModalContext';
+import PortfolioItem from './PortfolioItem';
+import ModalButton from './ModalButton';
 
 interface PortfolioPageProps {}
 
 const PortfolioPage: React.FC<PortfolioPageProps> = () => {
     const [projects, setProjects] = useState<Project[]>([]);
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-    const [modalIsOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         fetchProjects();
@@ -19,43 +21,28 @@ const PortfolioPage: React.FC<PortfolioPageProps> = () => {
         setProjects(rawProjects);
     });
 
-    const openModal = (project: Project) => {
-        setSelectedProject(project);
-        setIsOpen(true);
-    };
-
-    const closeModal = () => {
-        setSelectedProject(null);
-        setIsOpen(false);
-    };
-
     return (
         <>
             <h1>Portfolio</h1>
+            
+
+            <ModalProvider>
             <div className="portfolio-gallery">
                 {projects.map((project) => (
-                    <div
-                        key={project.id}
-                        className="portfolio-item"
-                        onClick={() => openModal(project)}
-                    >
-                        <img src={project.thumbnail} alt={project.title} />
-                        <div className="project-title">{project.title}</div>
-                        <div className="project-description">{project.description}</div>
-                    </div>
+                    <PortfolioItem displayProject={project} />
                 ))}
             </div>
-
-            <Modal isOpen={modalIsOpen} onRequestClose={closeModal}>
-                <div className="modal-content">
+            <Modal>
+            <div className="modal-content">
                     <img src={selectedProject?.thumbnail} alt={selectedProject?.title} />
                     <div className="modal-details">
                         <h2>{selectedProject?.title}</h2>
                         <p>{selectedProject?.description}</p>
                     </div>
-                    <button onClick={closeModal}>Close</button>
+                <ModalButton />
                 </div>
             </Modal>
+            </ModalProvider>
         </>
     );
 };

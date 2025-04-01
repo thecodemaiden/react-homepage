@@ -1,4 +1,6 @@
 // src/types.ts
+import React from 'react'
+
 export interface Post {
     id: number;
     title: string;
@@ -12,4 +14,10 @@ export interface Project {
     title: string;
     thumbnail: string;
     description: string;
+}
+
+export interface ModalContextType extends React.HTMLAttributes<HTMLDialogElement> {
+  modalIsOpen: boolean;
+  handleOpen: (event: React.MouseEvent<HTMLElement>) => void;
+  handleClose: (event: React.MouseEvent<HTMLElement>) => void;
 }

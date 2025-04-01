@@ -1,8 +1,7 @@
 // src/components/BlogPage.tsx
 import React, { useEffect, useState } from 'react';
 import { Post } from '../types';
-import { useParams, Link } from 'react-router-dom';
-import BlogPost from './BlogPost';
+import { Link } from 'react-router-dom';
 import rawPosts from '../static/posts.json'
 
 const BlogPage = () => {
