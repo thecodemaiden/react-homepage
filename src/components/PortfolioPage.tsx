@@ -31,7 +31,7 @@ const PortfolioPage: React.FC<PortfolioPageProps> = () => {
             <ModalProvider>
             <div className="portfolio-gallery">
                 {projects.map((project) => (
-                    <PortfolioItem displayProject={project} clickEffect={handleItemClick} />
+                    <PortfolioItem key={project.id} displayProject={project} clickEffect={handleItemClick} />
                 ))}
             </div>
             <PortfolioModal selectedProject={selectedProject} />

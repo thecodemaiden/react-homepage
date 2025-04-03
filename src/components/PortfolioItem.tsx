@@ -16,7 +16,6 @@ const PortfolioItem = ({displayProject, clickEffect}: PortfolioItemProps) => {
    }
     return (  
                     <div
-                        key={displayProject.id}
                         className="portfolio-item"
                         onClick={setProjectAndOpen}
                     >

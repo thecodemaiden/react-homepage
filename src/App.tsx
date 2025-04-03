@@ -1,21 +1,14 @@
 // src/App.tsx
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import BlogPage from './components/BlogPage';
-import BlogPost from './components/BlogPost';
-import PortfolioPage from './components/PortfolioPage';
-import MainPage from './components/MainPage';
+import AppRouter from './AppRouter';
+import SiteNav from './components/SiteNav';
 
 const App = () => {
     return (
-        <Router>
-            <Routes>
-                <Route path="/" element={<MainPage />} />
-                <Route path="/blog" element={<BlogPage />} />
-                <Route path="/blog/:id" element={<BlogPost post_id={0}/>} />
-                <Route path="/portfolio" element={<PortfolioPage />} />
-            </Routes>
-        </Router>
+        <div className="App">
+            <SiteNav/>
+            <AppRouter/>
+        </div>
     );
 };
 
