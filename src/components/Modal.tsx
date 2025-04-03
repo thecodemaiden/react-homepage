@@ -14,17 +14,6 @@ export default function Modal({children, ...props}:  React.HTMLAttributes<HTMLDi
     }
   };
 
-/*
-<div className="modal-content">
-                    <img src={selectedProject?.thumbnail} alt={selectedProject?.title} />
-                    <div className="modal-details">
-                        <h2>{selectedProject?.title}</h2>
-                        <p>{selectedProject?.description}</p>
-                    </div>
-                <ModalButton />
-                </div>
-*/
-
   return (
     <dialog onClick={handleClickOverlay} open={modalIsOpen} {...props}>
       {children}

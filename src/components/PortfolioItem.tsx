@@ -4,16 +4,21 @@ import { ModalContextType, Project } from '../types';
 import {ModalContext } from '../contexts/ModalContext';
 
 interface PortfolioItemProps {
-    displayProject: Project
+    displayProject: Project;
+    clickEffect: (p: Project) => void;
 }
 
-const PortfolioItem = ({displayProject}: PortfolioItemProps) => {
+const PortfolioItem = ({displayProject, clickEffect}: PortfolioItemProps) => {
    const { handleOpen } = useContext(ModalContext) as ModalContextType;
+   const setProjectAndOpen = (event: React.MouseEvent<HTMLElement>) => {
+        clickEffect(displayProject);
+        handleOpen(event);
+   }
     return (  
                     <div
                         key={displayProject.id}
                         className="portfolio-item"
-                        onClick={handleOpen}
+                        onClick={setProjectAndOpen}
                     >
                         <img src={displayProject.thumbnail} alt={displayProject.title} />
                         <div className="project-title">{displayProject.title}</div>

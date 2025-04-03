@@ -1,11 +1,10 @@
 // src/components/PortfolioPage.tsx
-import React, { useState, useEffect, useContext } from 'react';
-import { ModalContextType, Project } from '../types';
+import React, { useState, useEffect } from 'react';
+import { Project } from '../types';
 import rawProjects from '../static/projects.json'
-import Modal from './Modal';
-import { ModalProvider, ModalContext } from '../contexts/ModalContext';
+import { ModalProvider } from '../contexts/ModalContext';
 import PortfolioItem from './PortfolioItem';
-import ModalButton from './ModalButton';
+import PortfolioModal from './PortfolioModal';
 
 interface PortfolioPageProps {}
 
@@ -21,27 +20,21 @@ const PortfolioPage: React.FC<PortfolioPageProps> = () => {
         setProjects(rawProjects);
     });
 
+    const handleItemClick = ((p: Project) => {
+        setSelectedProject(p)
+    })
+
     return (
         <>
             <h1>Portfolio</h1>
-            
 
             <ModalProvider>
             <div className="portfolio-gallery">
                 {projects.map((project) => (
-                    <PortfolioItem displayProject={project} />
+                    <PortfolioItem displayProject={project} clickEffect={handleItemClick} />
                 ))}
             </div>
-            <Modal>
-            <div className="modal-content">
-                    <img src={selectedProject?.thumbnail} alt={selectedProject?.title} />
-                    <div className="modal-details">
-                        <h2>{selectedProject?.title}</h2>
-                        <p>{selectedProject?.description}</p>
-                    </div>
-                <ModalButton />
-                </div>
-            </Modal>
+            <PortfolioModal selectedProject={selectedProject} />
             </ModalProvider>
         </>
     );
