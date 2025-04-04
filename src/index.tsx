@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import App from './App';
-import './static/pico.min.css'
+import './static/pico-custom.css'
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

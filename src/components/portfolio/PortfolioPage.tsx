@@ -1,8 +1,8 @@
 // src/components/PortfolioPage.tsx
 import React, { useState, useEffect } from 'react';
-import { Project } from '../types';
-import rawProjects from '../static/projects.json'
-import { ModalProvider } from '../contexts/ModalContext';
+import { Project } from '../../types';
+import rawProjects from '../../static/projects.json'
+import { ModalProvider } from '../../contexts/ModalContext';
 import PortfolioItem from './PortfolioItem';
 import PortfolioModal from './PortfolioModal';
 
@@ -31,7 +31,9 @@ const PortfolioPage: React.FC<PortfolioPageProps> = () => {
             <ModalProvider>
             <div className="portfolio-gallery">
                 {projects.map((project) => (
-                    <PortfolioItem key={project.id} displayProject={project} clickEffect={handleItemClick} />
+                    <article key={project.id}>
+                    <PortfolioItem  displayProject={project} clickEffect={handleItemClick} />
+                    </article>
                 ))}
             </div>
             <PortfolioModal selectedProject={selectedProject} />

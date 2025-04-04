@@ -1,8 +1,8 @@
 // src/components/PortfolioModal.tsx
  import React from 'react'
- import { Project } from '../types'
-import Modal from './Modal';
-import ModalButton from './ModalButton';
+ import { Project } from '../../types'
+import Modal from '../Modal';
+import ModalButton from '../ModalButton';
 
  interface PortfolioModalProps {
     selectedProject: Project | null;

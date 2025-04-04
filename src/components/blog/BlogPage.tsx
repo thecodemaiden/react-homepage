@@ -1,8 +1,8 @@
 // src/components/BlogPage.tsx
 import React, { useEffect, useState } from 'react';
-import { Post } from '../types';
+import { Post } from '../../types';
 import { Link } from 'react-router-dom';
-import rawPosts from '../static/posts.json'
+import rawPosts from '../../static/posts.json'
 
 const BlogPage = () => {
     const [posts, setPosts] = useState<Post[]>([]);
@@ -20,10 +20,10 @@ const BlogPage = () => {
         <div>
             <h1>Blog</h1>
             {posts.map((post) => (
-                <div key={post.id}>
+                <article key={post.id}>
                     <Link to={`/blog/${post.id}`}>{post.title}</Link>
                     <hr />
-                </div>
+                </article>
             ))}
         </div>
     );

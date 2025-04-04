@@ -5,10 +5,19 @@ import SiteNav from './components/SiteNav';
 
 const App = () => {
     return (
-        <div className="App">
+        <>
+        <header>
             <SiteNav/>
+        </header>
+        <main>
             <AppRouter/>
-        </div>
+        </main>
+        <footer>
+            <center>
+                <p><small> Copyright 2025 Adeola Bannis</small></p>
+            </center>
+        </footer>
+        </>
     );
 };
 
