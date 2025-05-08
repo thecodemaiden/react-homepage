@@ -21,7 +21,7 @@ const BlogPage = () => {
             <h1>Blog</h1>
             {posts.map((post) => (
                 <article key={post.id}>
-                    <Link to={`/blog/${post.id}`}>{post.title}</Link>
+                    {post.date} <Link to={`/blog/${post.id}`}>{post.title}</Link>
                     <hr />
                 </article>
             ))}

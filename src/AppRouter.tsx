@@ -5,7 +5,7 @@ import BlogPage from './components/blog/BlogPage';
 import BlogPost from './components/blog/BlogPost';
 import PortfolioPage from './components/portfolio/PortfolioPage';
 import MainPage from './components/MainPage';
-import AboutMe from './components/about/AboutMe';
+import MyServices from './components/work/MyServices';
 
 const AppRouter = () => {
     return (
@@ -15,7 +15,7 @@ const AppRouter = () => {
                 <Route path="/blog" element={<BlogPage />} />
                 <Route path="/blog/:id" element={<BlogPost/>} />
                 <Route path="/portfolio" element={<PortfolioPage />} />
-                <Route path="/about" element={<AboutMe />} />
+                <Route path="/services" element={<MyServices />} />
             </Routes>
         </Router>
     );
